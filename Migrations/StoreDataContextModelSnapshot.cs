@@ -25,11 +25,14 @@ namespace ProductCatalog.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("varchar(120)")
+                        .HasMaxLength(120);
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("ProductCatalog.Models.Product", b =>
@@ -42,23 +45,33 @@ namespace ProductCatalog.Migrations
 
                     b.Property<DateTime>("CreateDate");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(1024)")
+                        .HasMaxLength(1024);
 
-                    b.Property<string>("Image");
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("varchar(1024)")
+                        .HasMaxLength(1024);
 
                     b.Property<DateTime>("LastUpdateDate");
 
-                    b.Property<decimal>("Price");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("money");
 
                     b.Property<int>("Quantity");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("varchar(120)")
+                        .HasMaxLength(120);
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("ProductCatalog.Models.Product", b =>
