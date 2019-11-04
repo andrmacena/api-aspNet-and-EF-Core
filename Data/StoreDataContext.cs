@@ -11,7 +11,7 @@ namespace ProductCatalog.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-I8RBCN3\SQLEXPRESS;Database=baltaProductCatalog;User ID=SA;Password=andremacena");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-I8RBCN3\SQLEXPRESS;Database=baltaProductCatalog;User ID=SA;Password=xxxxxxx");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
