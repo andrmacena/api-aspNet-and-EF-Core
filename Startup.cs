@@ -14,8 +14,12 @@ namespace ProductCatalog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            //injeção de depedência para CategoryController
+
             services.AddScoped<StoreDataContext, StoreDataContext>();
+
+            //injeção de depedência para CategoryController
+            services.AddTransient<CategoryRepository, CategoryRepository>();
+
             //injeção de depedência para ProductController
             services.AddTransient<ProductRepository, ProductRepository>();
         }
