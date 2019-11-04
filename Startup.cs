@@ -15,6 +15,8 @@ namespace ProductCatalog
         {
             services.AddMvc();
 
+            services.AddResponseCompression();
+
             services.AddScoped<StoreDataContext, StoreDataContext>();
 
             //injeção de depedência para CategoryController
@@ -28,10 +30,10 @@ namespace ProductCatalog
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-                app.UseMvc();
-            }
+
+            app.UseMvc();
+            app.UseResponseCompression();
         }
     }
 }
