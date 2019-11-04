@@ -20,6 +20,7 @@ namespace ProductCatalog.Controllers
         }
 
         [Route("v1/products")]
+        [ResponseCache(Duration = 60)]
         [HttpGet]
         public IEnumerable<ListProductViewModel> Get()
         {

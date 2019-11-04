@@ -19,6 +19,7 @@ namespace ProductCatalog.Controllers
 
         [Route("v1/categories")]
         [HttpGet]
+        [ResponseCache(Duration = 60)]
         //IEnumerable --> retorna uma lista e neste uma lista de categorias
         public IEnumerable<Category> Get()
         {
